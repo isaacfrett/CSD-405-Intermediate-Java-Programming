@@ -11,8 +11,9 @@ public class Module1 {
         Fan Fan2 = new Fan(2, true, 4, "black");
 
         // Display the two instances above
-        System.out.println(Fan1.toString());
-        System.out.println(Fan2.toString());
+        System.out.println("- Fan #1 -" + "\n" + Fan1.toString());
+        System.out.println(" ");
+        System.out.println("- Fan #2 -" + "\n" + Fan2.toString());
     }
 }
 
@@ -77,6 +78,9 @@ class Fan {
     // Override the toString() default method to change it's return structure
     @Override
     public String toString() {
-        return getSpeed() + " " + isOn() + " " + getRadius() + " " + getColor();
+        return "The fan speed is set to: " + getSpeed() + "\n" +
+            "The fan is on true/false: " + isOn() + "\n" +
+            "The radius of the fan is: " + getRadius() + "\n"+
+            "The color of the fan is: " + getColor();
     }
 }
