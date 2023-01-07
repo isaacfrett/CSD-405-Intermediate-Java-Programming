@@ -76,11 +76,11 @@ class Fan {
     }
 
     // Override the toString() default method to change it's return structure
-    @Override
-    public String toString() {
-        return "The fan speed is set to: " + getSpeed() + "\n" +
-            "The fan is on true/false: " + isOn() + "\n" +
-            "The radius of the fan is: " + getRadius() + "\n"+
-            "The color of the fan is: " + getColor();
-    }
+    // @Override
+    // public String toString() {
+    //     return "The fan speed is set to: " + getSpeed() + "\n" +
+    //         "The fan is on true/false: " + isOn() + "\n" +
+    //         "The radius of the fan is: " + getRadius() + "\n"+
+    //         "The color of the fan is: " + getColor();
+    // }
 }
