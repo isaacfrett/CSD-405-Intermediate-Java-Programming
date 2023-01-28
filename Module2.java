@@ -19,7 +19,7 @@ public class Module2 {
 }
 
 
-class Fan {
+class Fan1 {
 
     // Constants for the Fan class
     final int STOPPED = 0;
@@ -68,8 +68,8 @@ class Fan {
 
 
     // Two constructors, first one is default or no arguments, second one is with arguments or parameters
-    Fan() {}
-    Fan(int speed, boolean on, int radius, String color) {
+    Fan1() {}
+    Fan1(int speed, boolean on, int radius, String color) {
         this.speed = speed;
         this.on = on;
         this.radius = radius;
