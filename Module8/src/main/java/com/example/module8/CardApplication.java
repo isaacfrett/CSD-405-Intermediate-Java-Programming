@@ -1,23 +1,14 @@
 package com.example.module8;
 
 import javafx.application.Application;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
-import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.TilePane;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
+
 
 public class CardApplication extends Application {
 
@@ -27,44 +18,46 @@ public class CardApplication extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        try {
-            // set title
-            primaryStage.setTitle("JavaFX ImageView Tutorial - tutorialkart.com");
+        primaryStage.setTitle("Random 4 Cards");
 
-            //read image as stream
-            FileInputStream input = new FileInputStream("18.png");
-            //prepare image object
-            Image image = new Image(input);
-            //create ImageView object
-            ImageView imageView = new ImageView(image);
+        Image card1 = getRandomCards(primaryStage);
+        Image card2 = getRandomCards(primaryStage);
+        Image card3 = getRandomCards(primaryStage);
+        Image card4 = getRandomCards(primaryStage);
 
-            // stack pane
-            TilePane tilePane = new TilePane();
 
-            // add ImageView to the tile pane
-            tilePane.getChildren().add(imageView);
+        ImageView imageView1 = new ImageView(card1);
+        ImageView imageView2 = new ImageView(card2);
+        ImageView imageView3 = new ImageView(card3);
+        ImageView imageView4 = new ImageView(card4);
+        TilePane tilePane = new TilePane();
 
-            //set up scene
-            Scene scene = new Scene(tilePane, 450, 300);
-            primaryStage.setScene(scene);
-            primaryStage.show();
-        } catch(Exception e) {
-            e.printStackTrace();
-        }
+        tilePane.getChildren().add(imageView1);
+        tilePane.getChildren().add(imageView2);
+        tilePane.getChildren().add(imageView3);
+        tilePane.getChildren().add(imageView4);
+
+        Scene scene = new Scene(tilePane, 450, 300);
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
 
 
 
-    public static void getRandomCards() throws FileNotFoundException {
+    public static Image getRandomCards(Stage primaryStage) {
 
-
-        for (int i = 0; i < 4; i++) {
+        try {
             int image_number = (int) (Math.random() * 52) + 1;
+            File input = new File("src/cards/" + image_number + ".png");
+            Image image = new Image(input.toURI().toString());
+            return image;
+
+        } catch(Exception e) {
+            e.printStackTrace();
         }
 
 
-
-
+        return null;
     }
 }
 
